@@ -2,7 +2,7 @@
 To implement S2VT
 
 ## 1. Create docker images from existed image. 
-We have a images like that.
+We have a image caffe like that.
 ![img1](https://user-images.githubusercontent.com/42643830/144418725-fdddbe4e-70c4-42a8-878b-2af42d9e234e.PNG)
 
 
@@ -35,9 +35,13 @@ _ apt-get install python-tk
  
  ## 4. Training S2VT
  make directory to extract hdf5 file when trainng:
+ 
  mkdir rawcorpus
+ 
  mkdir rawcorpus/train
+ 
  mkdir rawcorpus/val
+ 
  mkdir rawcorpus/val
  
  Change dimension of training data in **framefc7_stream_text_to_hdf5_data.py** file. 4096 for VGG, and 1053 for Inperceptionv4
@@ -45,12 +49,18 @@ _ apt-get install python-tk
 
 
  copy training data to data directory:
+ 
  yt_allframes_vgg_fc7_train.txt
+ 
  yt_allframes_vgg_fc7_val.txt
+ 
  yt_allframes_vgg_fc7_test.txt
  
+ 
+ 
 extract data: 
-python framefc7_stream_text_to_hdf5_data.py
+
+_python framefc7_stream_text_to_hdf5_data.py_
 
 Change parameters, such as save directory, iteration, learning rate,..
 
@@ -59,7 +69,7 @@ Change parameters, such as save directory, iteration, learning rate,..
 
 train: **_/usr/local/bin/caffe train –solver ./s2vt_solver.prototxt_**
 
-## 4. Testing
+## 4. Testing setting
 Copy extracted feature txt file to data/yt_allframes_vgg_fc7_test.txt
 
 Change testing feature demension in: vim s2vt.words_to_preds.deploy.prototxt 
@@ -67,6 +77,11 @@ Change testing feature demension in: vim s2vt.words_to_preds.deploy.prototxt
 
 ## 5. Evaluation
 
-cd caption-eval
-python run_evaluations.py -i ../results/test.s2vt_youtube_inv4_iter_10000_beam_size_1.txt -r data/references_test.json 
+python s2vt_captioner.py -m s2vt_youtube_inv4_iter_10000 -t
+
+
+_cd caption-eval_
+
+
+_python run_evaluations.py -i ../results/test.s2vt_youtube_inv4_iter_10000_beam_size_1.txt -r data/references_test.json _
  
