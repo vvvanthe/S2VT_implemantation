@@ -29,4 +29,40 @@ One different way: using docker pull if the image had in hub.docker.com
  docker attach s2vt_
  % To run video caption-val
 _ apt-get install python-tk
- apt-get install openjdk-8-jdk_
+ apt-get install openjdk-8-jdk
+ apt install vim
+ _
+ 
+ ## 4. Training S2VT
+ make directory to extract hdf5 file when trainng:
+ mkdir rawcorpus
+ mkdir rawcorpus/train
+ mkdir rawcorpus/val
+ mkdir rawcorpus/val
+ 
+ Change dimension of training data in **framefc7_stream_text_to_hdf5_data.py** file. 4096 for VGG, and 1053 for Inperceptionv4
+ 
+ copy training data to data directory:
+ yt_allframes_vgg_fc7_train.txt
+ yt_allframes_vgg_fc7_val.txt
+ yt_allframes_vgg_fc7_test.txt
+ 
+extract data: 
+python framefc7_stream_text_to_hdf5_data.py
+
+Change parameters, such as save directory, iteration, learning rate,..
+
+
+
+train: **_/usr/local/bin/caffe train –solver ./s2vt_solver.prototxt_**
+
+## 4. Testing
+Copy extracted feature txt file to data/yt_allframes_vgg_fc7_test.txt
+
+Change testing feature demension in: vim s2vt.words_to_preds.deploy.prototxt 
+
+## 5. Evaluation
+
+cd caption-eval
+python run_evaluations.py -i ../results/test.s2vt_youtube_inv4_iter_10000_beam_size_1.txt -r data/references_test.json 
+ 
