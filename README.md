@@ -85,3 +85,6 @@ _cd caption-eval_
 
 _python run_evaluations.py -i ../results/test.s2vt_youtube_inv4_iter_10000_beam_size_1.txt -r data/references_test.json _
  
+## 6. hdf5 <=> txt transformation
+
+Check all files below
