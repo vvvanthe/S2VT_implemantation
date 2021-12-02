@@ -14,7 +14,8 @@ _docker save -o /home/levanthe/caffe.tar 9ab5517db338_
 
 Load image from tar file: _docker load -i caffe.tar _
 
-One different way: using 
+One different way: using docker pull if the image had in hub.docker.com
+![2](https://user-images.githubusercontent.com/42643830/144420203-29734d40-6b24-42c3-868c-8d17d0bbfc3c.png)
  ## 2. Create container
  
  _docker run --gpus all --shm-size 128gb --name s2vt -it 9ab5517db338_
