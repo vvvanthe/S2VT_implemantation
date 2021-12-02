@@ -41,7 +41,9 @@ _ apt-get install python-tk
  mkdir rawcorpus/val
  
  Change dimension of training data in **framefc7_stream_text_to_hdf5_data.py** file. 4096 for VGG, and 1053 for Inperceptionv4
- 
+ ![3](https://user-images.githubusercontent.com/42643830/144423093-2e9a591f-a9db-46c0-86b6-318a5cb97634.PNG)
+
+
  copy training data to data directory:
  yt_allframes_vgg_fc7_train.txt
  yt_allframes_vgg_fc7_val.txt
@@ -52,6 +54,7 @@ python framefc7_stream_text_to_hdf5_data.py
 
 Change parameters, such as save directory, iteration, learning rate,..
 
+![4](https://user-images.githubusercontent.com/42643830/144423098-5683208b-ee6e-4872-be92-9bba54a32e38.PNG)
 
 
 train: **_/usr/local/bin/caffe train –solver ./s2vt_solver.prototxt_**
@@ -60,6 +63,7 @@ train: **_/usr/local/bin/caffe train –solver ./s2vt_solver.prototxt_**
 Copy extracted feature txt file to data/yt_allframes_vgg_fc7_test.txt
 
 Change testing feature demension in: vim s2vt.words_to_preds.deploy.prototxt 
+![5](https://user-images.githubusercontent.com/42643830/144423101-e5d92c07-b2a4-4531-b980-392a20378ebe.PNG)
 
 ## 5. Evaluation
 
