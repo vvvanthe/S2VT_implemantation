@@ -16,6 +16,8 @@ Load image from tar file:
 
 _docker load -i caffe.tar_
 
+If appearing "Got permission denied ...", using sudo chmod 666 /var/run/docker.sock.
+
 One different way: using docker pull if the image had in hub.docker.com
 ![2](https://user-images.githubusercontent.com/42643830/144420203-29734d40-6b24-42c3-868c-8d17d0bbfc3c.png)
  ## 2. Create container
