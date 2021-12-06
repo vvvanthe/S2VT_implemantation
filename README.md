@@ -29,13 +29,19 @@ One different way: using docker pull if the image had in hub.docker.com
  
  
  ## 3. Install required package:
- _apt-get update
- docker attach s2vt_
+ 
+ apt-get update
+ 
+ docker attach s2vt
+ 
  % To run video caption-val
-_ apt-get install python-tk
+ 
+apt-get install python-tk
+
  apt-get install openjdk-8-jdk
+ 
  apt install vim
- _
+
  
  ## 4. Training S2VT
  make directory to extract hdf5 file when trainng:
