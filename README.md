@@ -1,6 +1,15 @@
 # S2VT_implemantation
 To implement S2VT
 
+# Install nvidia-docker:
+
+https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html
+
+If appearing "Got permission denied ...", using
+
+sudo chmod 666 /var/run/docker.sock.
+
+
 ## 1. Create docker images from existed image. 
 We have a image caffe like that.
 ![img1](https://user-images.githubusercontent.com/42643830/144418725-fdddbe4e-70c4-42a8-878b-2af42d9e234e.PNG)
@@ -16,7 +25,7 @@ Load image from tar file:
 
 _docker load -i caffe.tar_
 
-If appearing "Got permission denied ...", using sudo chmod 666 /var/run/docker.sock.
+
 
 One different way: using docker pull if the image had in hub.docker.com
 ![2](https://user-images.githubusercontent.com/42643830/144420203-29734d40-6b24-42c3-868c-8d17d0bbfc3c.png)
