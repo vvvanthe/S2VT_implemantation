@@ -81,7 +81,7 @@ extract data:
 
 _python framefc7_stream_text_to_hdf5_data.py_
 
-Change parameters, such as save directory, iteration, learning rate,..
+Change parameters, such as save directory, iteration, learning rate,.. at s2vt_solver.prototxt
 
 ![4](https://user-images.githubusercontent.com/42643830/144423098-5683208b-ee6e-4872-be92-9bba54a32e38.PNG)
 
